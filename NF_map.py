@@ -66,7 +66,7 @@ reader = shpreader.Reader(shpreader.natural_earth(resolution='110m', category='c
 records = list(reader.records())
 
 # Unify continents
-cmap = get_cmap('RdBu')
+cmap = get_cmap('Greens')
 norm = Normalize(vmin=30, vmax=90)
 
 # Plot
@@ -117,16 +117,16 @@ for i, continent_values in enumerate(data_list):
         else:
             ax.add_geometries([merged], ccrs.PlateCarree(), facecolor='none', edgecolor='black', linewidth=0.6)
 
-    # Colorbar
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    sm.set_array([])
-    cb = plt.colorbar(sm, ax=ax, orientation='horizontal', shrink=0.6, pad=0.3)
-    cb.ax.tick_params(labelsize=9, labelcolor="black")
-    for label in cb.ax.get_xticklabels():
-        label.set_fontfamily("Times New Roman")
+    # # Colorbar
+    # sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+    # sm.set_array([])
+    # cb = plt.colorbar(sm, ax=ax, orientation='horizontal', shrink=0.6, pad=0.3)
+    # cb.ax.tick_params(labelsize=9, labelcolor="black")
+    # for label in cb.ax.get_xticklabels():
+    #     label.set_fontfamily("Arial")
 
-    plt.rcParams['font.family'] = 'Times New Roman'
-    plt.rcParams['font.size'] = 12
+    # plt.rcParams['font.family'] = 'Arial'
+    # plt.rcParams['font.size'] = 12
 
 
     plt.show()
